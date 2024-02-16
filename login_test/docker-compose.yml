@@ -1,0 +1,8 @@
+version: '3.5'
+services:
+  django:
+    image: django-login
+    container_name: django-login
+    volumes:
+      - ./:/root
+    tty: true

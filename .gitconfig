@@ -1,0 +1,36 @@
+[credential "http://150.35.36.177"]
+	provider = generic
+[user]	
+	name = 坂本 隆幸
+	email = takayuki.sakamoto@daikin.co.jp
+[diff]
+	tool = WinMerge
+[difftool "WinMerge"]
+	path = C:/Program Files (x86)/WinMerge/WinMergeU.exe
+	cmd = \"C:/Program Files (x86)/WinMerge/WinMergeU.exe\" -f \"*.*\" -e -u -r  \"$LOCAL\" \"$REMOTE\"
+[merge]
+	tool = WinMerge
+[mergetool "WinMerge"]
+	path = C:/Program Files (x86)/WinMerge/WinMergeU.exe
+	cmd = \"C:/Program Files (x86)/WinMerge/WinMergeU.exe\" -e -u \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
+[alias]
+	windiff = difftool -y -d -t WinMerge
+	winmerge = mergetool -y -t WinMerge
+	tree = log --graph --pretty=format:'%x09%C(auto) %h %Cgreen %ad %Creset%x09%C(cyan)%an%Creset %x09%C(auto)%s %d' --date=format-local:'%Y/%m/%d %H:%M:%S'
+	command2 = "!f(){ echo $1 $2;};f"
+
+[mergetool]
+	keepBackup = false
+
+[http "https://github.com/"]
+	proxy = http://gwproxy.daikin.co.jp:3128
+
+[http "https://github.com.sub/"]
+	proxy = http://gwproxy.daikin.co.jp:3128
+
+[http]
+	sslVerify = false
+[init]
+	defaultBranch = master
+[credential]
+	helper = "!f() { /root/.vscode-server/bin/31c37ee8f63491495ac49e43b8544550fbae4533/node /tmp/vscode-remote-containers-3295726d-a5a0-4912-ad48-acb3406d8da4.js git-credential-helper $*; }; f"
